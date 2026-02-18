@@ -7,7 +7,7 @@ gem 'rails', '~> 7.2.2.2'
 gem 'mysql2', '~> 0.5'
 gem 'sass-rails'
 gem 'sprockets-rails'
-gem 'rack', '~> 3.1.18'
+gem 'rack', '~> 3.1.20'
 gem 'rack-session', '~> 2.1.1'
 gem 'rack-cors', '1.1.0'
 gem 'jbuilder', '~> 2.7'
@@ -31,9 +31,9 @@ group :development do
 
   # capistrano
   gem 'capistrano', '3.19.2'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-rails'
+  gem 'capistrano-bundler', '2.1.1'
+  gem 'capistrano-rbenv', '2.2.0'
+  gem 'capistrano-rails', '1.6.3'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
 end
