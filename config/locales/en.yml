@@ -28,4 +28,4 @@ en:
       message: "Lodestone News updates will now be posted in this channel."
     title: "FFXIV Lodestone News"
   alerts:
-    lodestone_ban: "Lodestone News has been banned from the Lodestone. News updates are unavailable at this time."
+    lodestone_ban: "Due to a networking change on the Lodestone, news updates are unavailable at this time."
