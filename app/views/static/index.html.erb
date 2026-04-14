@@ -33,7 +33,7 @@
             <% end %>
           </div>
           <div class="text-center">
-            <%= f.submit t('subscribe.submit'), class: 'btn discord' %>
+            <%= f.submit t('subscribe.submit'), { disabled: true, class: 'btn discord' } %>
             <p class="my-2"><%= t('subscribe.permission').html_safe %></p>
           </div>
         <% end %>
@@ -53,7 +53,7 @@
               <%= f.select :locale, locale_options(cookies[:locale]), {}, class: 'form-control' %>
             </div>
             <div class="text-center">
-              <%= f.submit t('subscribe.submit'), class: 'btn rss' %>
+              <%= f.submit t('subscribe.submit'), { disabled: true, class: 'btn rss' } %>
             </div>
           <% end %>
         </div>

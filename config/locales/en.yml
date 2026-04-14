@@ -27,3 +27,5 @@ en:
       flash: "You are now subscribed to Lodestone News updates."
       message: "Lodestone News updates will now be posted in this channel."
     title: "FFXIV Lodestone News"
+  alerts:
+    lodestone_ban: "Lodestone News has been banned from the Lodestone. News updates are unavailable at this time."
