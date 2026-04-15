@@ -4,6 +4,7 @@ module Lodestone
   include Lodestone::Maintenance
 
   BASE_URL = 'https://finalfantasyxiv.com'.freeze
+  PROXY_URL = Rails.application.credentials.dig(:proxy, :url).freeze
   LODESTONE_URL = 'https://finalfantasyxiv.com/lodestone'.freeze
   DEVELOPERS_URL = 'https://finalfantasyxiv.com/blog/atom.xml'.freeze
   CATEGORIES = YAML.load_file('config/categories.yml').freeze
@@ -15,7 +16,7 @@ module Lodestone
     uri = URI.parse(LODESTONE_URL)
     uri.host = "#{locale}.#{uri.host}"
 
-    page = Nokogiri::HTML(Net::HTTP.get_response(uri).body)
+    page = Nokogiri::HTML(request(uri).body)
     news = parse_news(page, locale) + parse_topics(page, locale)
 
     create_posts(locale: locale, news: news)
@@ -25,7 +26,7 @@ module Lodestone
     uri = URI.parse(DEVELOPERS_URL)
     uri.host = "#{locale}.#{uri.host}"
 
-    page = Nokogiri::HTML(Net::HTTP.get_response(uri).body)
+    page = Nokogiri::HTML(request(uri).body)
     news = parse_blog(page, locale)
 
     create_posts(locale: locale, news: news)
@@ -134,6 +135,14 @@ module Lodestone
         .first(2).map(&:strip).join("\n\n")
 
       { uid: id, url: url, title: title, time: time, description: description, locale: locale, category: 'developers' }
+    end
+  end
+
+  def request(uri)
+    if Rails.env.production? && PROXY_URL.present?
+      RestClient.get(PROXY_URL, params: { url: uri, })
+    else
+      Net::HTTP.get_response(uri)
     end
   end
 end
