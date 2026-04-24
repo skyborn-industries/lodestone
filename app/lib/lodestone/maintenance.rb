@@ -24,10 +24,9 @@ module Lodestone::Maintenance
     'de' => { 'So' => 'Sun', 'Mo' => 'Mon', 'Di' => 'Tue', 'Mi' => 'Wed', 'Do' => 'Thu', 'Fr' => 'Fri', 'Sa' => 'Sat' }
   }.freeze
 
-  def add_timestamps(post, locale)
+  def add_timestamps(page, post, locale)
     begin
       Rails.logger.info("Fetching timestamps for #{post[:url]}")
-      page = Nokogiri::HTML(URI.open(post[:url]))
       details = page.at_css('.news__detail__wrapper').text.match(DATE_REGEX[locale])[0]
       times = details.scan(TIMESTAMP_REGEX[locale])
       times << [nil, nil, nil] if times.size == 1 # Ensure we have at least one start/end time pair

@@ -45,7 +45,7 @@ module Lodestone
       uri.host = "#{locale}.#{uri.host}"
       uri.query = "page=#{page}"
 
-      page = Nokogiri::HTML(Net::HTTP.get_response(uri).body)
+      page = Nokogiri::HTML(request(uri).body)
       news = parse_news(page, locale) + parse_topics(page, locale)
       create_posts(locale: locale, news: news)
     end
@@ -72,7 +72,8 @@ module Lodestone
       news.filter_map do |post|
         unless News.exists?(uid: post[:uid])
           if post[:category] == 'maintenance' && timestamps_supported?(locale)
-            post = add_timestamps(post, locale)
+            page = Nokogiri::HTML(request(post[:url]))
+            post = add_timestamps(page, post, locale)
           end
 
           News.create!(post)
@@ -139,7 +140,7 @@ module Lodestone
   end
 
   def request(uri)
-    if Rails.env.production? && PROXY_URL.present?
+    if PROXY_URL.present?
       RestClient.get(PROXY_URL, params: { url: uri, })
     else
       Net::HTTP.get_response(uri)
