@@ -1,5 +1,3 @@
-require 'net/http'
-
 module Lodestone
   include Lodestone::Maintenance
 
@@ -143,7 +141,7 @@ module Lodestone
     if PROXY_URL.present?
       RestClient.get(PROXY_URL, params: { url: uri, })
     else
-      Net::HTTP.get_response(uri)
+      RestClient.get(uri.to_s)
     end
   end
 end
