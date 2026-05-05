@@ -15,7 +15,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'lograge'
 gem 'whenever', require: false
 gem 'rest-client'
-gem 'nokogiri', '~> 1.18.3'
+gem 'nokogiri', '~> 1.18'
 gem 'tzinfo'
 gem 'bootstrap', '~> 4.3.1'
 gem 'ostruct'
