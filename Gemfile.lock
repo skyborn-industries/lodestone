@@ -77,9 +77,9 @@ GEM
       uri (>= 0.13.1)
     airbrussh (1.6.2)
       sshkit (>= 1.6.1, != 1.7.0)
-    annotate (2.6.5)
-      activerecord (>= 2.3.0)
-      rake (>= 0.8.7)
+    annotaterb (4.24.0)
+      activerecord (>= 6.0.0)
+      activesupport (>= 6.0.0)
     autoprefixer-rails (10.4.21.0)
       execjs (~> 2)
     base64 (0.3.0)
@@ -309,7 +309,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  annotate
+  annotaterb
   bcrypt_pbkdf
   bootsnap (>= 1.4.4)
   bootstrap (~> 4.3.1)

@@ -2,18 +2,18 @@
 #
 # Table name: news
 #
-#  id          :bigint(8)        not null, primary key
-#  uid         :string(255)      not null
-#  url         :string(255)      not null
-#  title       :string(255)      not null
-#  time        :datetime         not null
+#  id          :bigint           not null, primary key
 #  category    :string(255)      not null
+#  description :text(65535)
+#  end_time    :datetime
+#  image       :string(255)
 #  locale      :string(255)      not null
 #  sent        :boolean          default(FALSE)
-#  image       :string(255)
-#  description :text(65535)
 #  start_time  :datetime
-#  end_time    :datetime
+#  time        :datetime         not null
+#  title       :string(255)      not null
+#  uid         :string(255)      not null
+#  url         :string(255)      not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

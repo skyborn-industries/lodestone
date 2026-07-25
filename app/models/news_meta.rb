@@ -2,10 +2,10 @@
 #
 # Table name: news_meta
 #
-#  id          :bigint(8)        not null, primary key
+#  id          :bigint           not null, primary key
+#  expires_at  :datetime
 #  locale      :string(255)
 #  modified_at :datetime
-#  expires_at  :datetime
 #
 class NewsMeta < ApplicationRecord
   # The latest news is fetched every 10 minutes

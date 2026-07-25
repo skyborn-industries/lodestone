@@ -2,15 +2,15 @@
 #
 # Table name: webhooks
 #
-#  id          :bigint(8)        not null, primary key
-#  url         :string(255)      not null
-#  locale      :string(255)      not null
-#  topics      :boolean
-#  notices     :boolean
-#  maintenance :boolean
-#  updates     :boolean
-#  status      :boolean
+#  id          :bigint           not null, primary key
 #  developers  :boolean
+#  locale      :string(255)      not null
+#  maintenance :boolean
+#  notices     :boolean
+#  status      :boolean
+#  topics      :boolean
+#  updates     :boolean
+#  url         :string(255)      not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

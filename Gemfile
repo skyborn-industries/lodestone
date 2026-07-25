@@ -22,7 +22,7 @@ gem 'ostruct'
 
 group :development do
   gem 'puma'
-  gem 'annotate'
+  gem 'annotaterb'
   gem 'web-console'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'listen'
