@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.3.5'
 
-gem 'rails', '~> 7.2.3.1'
-gem 'mysql2', '~> 0.5'
+gem 'rails', '~> 8.1.3'
+gem 'mysql2', '~> 0.5.6'
 gem 'sass-rails'
 gem 'sprockets-rails'
 gem 'rack', '~> 3.1.21'
@@ -29,7 +29,7 @@ group :development do
   gem 'spring'
   gem 'i18n_yaml_sorter'
 
-  # capistrano
+  # Capistrano
   gem 'capistrano', '3.19.2'
   gem 'capistrano-bundler', '2.1.1'
   gem 'capistrano-rbenv', '2.2.0'
