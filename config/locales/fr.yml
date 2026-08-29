@@ -6,6 +6,7 @@ fr:
     status: "État"
     topics: "À la une"
     updates: "Mises à jour"
+  created_by: "Créé par Sera Fae de Behemoth"
   social:
     discord: "Rejoins nous sur Discord"
     github: "Documentation de l'API"
